@@ -4,22 +4,22 @@
 //
 //  Created by lfzyx on 15/1/14.
 //  Copyright (c) 2014年 lfzyx. All rights reserved.
-//
+// 输入一个数，列出螺旋矩阵
 #include <stdio.h>
-#define N 9
-void pri(int Array[][N], int a, int b);
-void spiral(int spiral[][N], int x);
+#define N 10
+void pri(int Array[N][N], int a, int b);
+void spiral(int spiral[N][N], int x);
 int main()
 {
     int shuzu[N][N];//矩阵数组
     int a, b;//边长
     do
     {
-        printf("求边长不大于9的螺旋矩阵\n");
+        printf("求边长不大于%d的螺旋矩阵\n",N);
         scanf("%d",&a);
-    } while (a > 9 || a < 1);
+    } while (a > N || a < 1);
     spiral(shuzu, a);//赋数组初值
-    b = a;
+    b = a;//边长赋值
     pri(shuzu, a, b);//打印数组
     return 0;
 }
