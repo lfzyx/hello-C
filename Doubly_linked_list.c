@@ -12,8 +12,8 @@ typedef struct flat
 {
     Node *flat;
 }Flat;
-void add(Flat * flat,int number, Flat *pend);
 
+void add(Flat * flat,int number, Flat *pend);
 
 int main(int argc,char const *argv[])
 {
@@ -30,26 +30,35 @@ int main(int argc,char const *argv[])
         if (number != -1)
         {
             add(&head,number,&end);
-
+            
         }
     }while (number != -1);
-
+    
     printf("value\taddress\t*next\t\n");
-
-    for (;  head.flat ; head.flat=head.flat->next) {
+    
+    for (;  head.flat ; head.flat=head.flat->next)
+    {
         printf("%d\t",head.flat->value);
         printf("%p\t",head.flat);
         printf("↙%p\t",head.flat->next);
         printf("↖%p\n",head.flat->before);
+        
     }
+    
     printf("value\taddress\t*before\t\n");
     
-    for (;  end.flat ; end.flat=end.flat->before) {
+    for (;  end.flat ; end.flat=end.flat->before)
+    {
         printf("%d\t",end.flat->value);
         printf("%p\t",end.flat);
         printf("↙%p\t",end.flat->before);
         printf("↖%p\n",end.flat->next);
         
+    }
+    
+    for (;  end.flat ; end.flat=end.flat->before)
+    {
+        free(end.flat);
     }
     
 }
@@ -75,16 +84,12 @@ void add(Flat * phead,int number, Flat *pend)
         while (last->next)
         {
             last=last->next;
-            
         }
-    last->next = p;
-
+        last->next = p;
     }
     else
-        {
-            phead->flat = p;
-        }
-    
-    
+    {
+        phead->flat = p;
+    }
 }
 
