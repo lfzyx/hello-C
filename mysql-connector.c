@@ -31,7 +31,7 @@ int main(int argc, char *argv[])
     if (mysql_real_connect(conn, "10.10.10.91", "root", "waukeen@2014", "IP-Blacklist", 0, 0 ,0)==NULL)
     {
         printf("Error %u: %s\n", mysql_errno(conn), mysql_error(conn));
-    };
+    }
 
     //函数mysql_query执行sql语句
     if (mysql_query(
